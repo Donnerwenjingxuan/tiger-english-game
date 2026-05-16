@@ -1,0 +1,6 @@
+# Tiger English Game - Git Ignore
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+test.html
