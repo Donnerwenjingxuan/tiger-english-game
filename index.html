@@ -133,8 +133,14 @@ body{
 .pic-card:active{transform:scale(.96)}
 .pic-card.correct{animation:correctPop .5s ease;border-color:#4caf50 !important;box-shadow:0 8px 30px rgba(76,175,80,.4)}
 .pic-card.wrong{animation:wrongShake .45s ease;border-color:#f44336 !important;box-shadow:0 8px 25px rgba(244,67,54,.35)}
+/* 真实图片样式 */
 .pic-emoji{font-size:72px;line-height:1.2;transition:transform .3s}
 .pic-card:hover .pic-emoji{transform:scale(1.12) rotate(-3deg)}
+.real-pic{
+  width:85%;height:85%;object-fit:cover;border-radius:16px;
+  transition:transform .3s;
+}
+.pic-card:hover .real-pic{transform:scale(1.08) rotate(-2deg)}
 
 @keyframes correctPop{0%{transform:scale(1)}40%{transform:scale(1.15)}70%{transform:scale(.95)}100%{transform:scale(1)}}
 @keyframes wrongShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}40%{transform:translateX(12px)}60%{transform:translateX(-8px)}80%{transform:translateX(8px)}
@@ -330,6 +336,7 @@ body{
 @media(max-width:600px){
   .pic-card{width:calc(50% - 12px) !important;max-width:180px !important;border-radius:20px !important;border:3px solid transparent !important;}
   .pic-emoji{font-size:52px !important}
+  .real-pic{width:80% !important;height:80% !important;border-radius:12px !important;}
   .the-word{font-size:38px !important;letter-spacing:1px !important;}
   .word-area{padding:18px 10px 10px !important;}
   .pics-area{gap:10px !important;padding:10px 12px 20px !important;align-content:start;}
@@ -872,80 +879,80 @@ var CAT_ICONS = {
 
 var WORDS_DB = {
   "Animals": [
-    {w:"cat",e:"🐱"},{w:"dog",e:"🐶"},{w:"tiger",e:"🐯"},{w:"lion",e:"🦁"},
-    {w:"elephant",e:"🐘"},{w:"giraffe",e:"🦒"},{w:"zebra",e:"🦓"},
-    {w:"monkey",e:"🐵"},{w:"panda",e:"🐼"},{w:"koala",e:"🐨"},
-    {w:"kangaroo",e:"🦘"},{w:"rabbit",e:"🐰"},{w:"hamster",e:"🐹"},
-    {w:"mouse",e:"🐭"},{w:"bear",e:"🐻"},{w:"fox",e:"🦊"},
-    {w:"wolf",e:"🐺"},{w:"pig",e:"🐷"},{w:"cow",e:"🐮"},
-    {w:"horse",e:"🐴"},{w:"sheep",e:"🐑"},{w:"goat",e:"🐐"},
-    {w:"deer",e:"🦌"},{w:"chicken",e:"🐔"},{w:"duck",e:"🦆"},
-    {w:"bird",e:"🐦"},{w:"owl",e:"🦉"},{w:"penguin",e:"🐧"},
-    {w:"parrot",e:"🦜"},{w:"peacock",e:"🦚"},{w:"flamingo",e:"🦩"},
-    {w:"swan",e:"🦢"},{w:"fish",e:"🐟"},{w:"dolphin",e:"🐬"},
-    {w:"whale",e:"🐋"},{w:"shark",e:"🦈"},{w:"octopus",e:"🐙"},
-    {w:"crab",e:"🦀"},{w:"lobster",e:"🦞"},{w:"shrimp",e:"🦐"},
-    {w:"turtle",e:"🐢"},{w:"snake",e:"🐍"},{w:"lizard",e:"🦎"},
-    {w:"frog",e:"🐸"},{w:"crocodile",e:"🐊"},{w:"hippo",e:"🦛"},
-    {w:"rhino",e:"🦏"},{w:"camel",e:"🐫"},{w:"llama",e:"🦙"},
-    {w:"bat",e:"🦇"},{w:"bee",e:"🐝"},{w:"butterfly",e:"🦋"},
-    {w:"ladybug",e:"🐞"},{w:"snail",e:"🐌"},{w:"worm",e:"🪱"},
-    {w:"ant",e:"🐜"},{w:"spider",e:"🕷️"},{w:"eagle",e:"🦅"},
-    {w:"seal",e:"🦭"},{w:"walrus",e:"🦪"},{w:"mosquito",e:"🦟"},
-    {w:"dragonfly",e:"🪰"},{w:"grasshopper",e:"🦗"},{w:"squirrel",e:"🐿️"},
-    {w:"hedgehog",e:"🦔"},{w:"otter",e:"🦦"},{w:"buffalo",e:"🐃"},
-    {w:"donkey",e:"🫏"},{w:"gorilla",e:"🦍"}
+    {w:"cat",e:"🐱",i:"https://loremflickr.com/400/400/cat?random=1"},{w:"dog",e:"🐶",i:"https://loremflickr.com/400/400/dog?random=2"},{w:"tiger",e:"🐯",i:"https://loremflickr.com/400/400/tiger?random=3"},{w:"lion",e:"🦁",i:"https://loremflickr.com/400/400/lion?random=4"},
+    {w:"elephant",e:"🐘",i:"https://loremflickr.com/400/400/elephant?random=5"},{w:"giraffe",e:"🦒",i:"https://loremflickr.com/400/400/giraffe?random=6"},{w:"zebra",e:"🦓",i:"https://loremflickr.com/400/400/zebra?random=7"},
+    {w:"monkey",e:"🐵",i:"https://loremflickr.com/400/400/monkey?random=8"},{w:"panda",e:"🐼",i:"https://loremflickr.com/400/400/panda?random=9"},{w:"koala",e:"🐨",i:"https://loremflickr.com/400/400/koala?random=10"},
+    {w:"kangaroo",e:"🦘",i:"https://loremflickr.com/400/400/kangaroo?random=11"},{w:"rabbit",e:"🐰",i:"https://loremflickr.com/400/400/rabbit?random=12"},{w:"hamster",e:"🐹",i:"https://loremflickr.com/400/400/hamster?random=13"},
+    {w:"mouse",e:"🐭",i:"https://loremflickr.com/400/400/mouse?random=14"},{w:"bear",e:"🐻",i:"https://loremflickr.com/400/400/bear?random=15"},{w:"fox",e:"🦊",i:"https://loremflickr.com/400/400/fox?random=16"},
+    {w:"wolf",e:"🐺",i:"https://loremflickr.com/400/400/wolf?random=17"},{w:"pig",e:"🐷",i:"https://loremflickr.com/400/400/pig?random=18"},{w:"cow",e:"🐮",i:"https://loremflickr.com/400/400/cow?random=19"},
+    {w:"horse",e:"🐴",i:"https://loremflickr.com/400/400/horse?random=20"},{w:"sheep",e:"🐑",i:"https://loremflickr.com/400/400/sheep?random=21"},{w:"goat",e:"🐐",i:"https://loremflickr.com/400/400/goat?random=22"},
+    {w:"deer",e:"🦌",i:"https://loremflickr.com/400/400/deer?random=23"},{w:"chicken",e:"🐔",i:"https://loremflickr.com/400/400/chicken?random=24"},{w:"duck",e:"🦆",i:"https://loremflickr.com/400/400/duck?random=25"},
+    {w:"bird",e:"🐦",i:"https://loremflickr.com/400/400/bird?random=26"},{w:"owl",e:"🦉",i:"https://loremflickr.com/400/400/owl?random=27"},{w:"penguin",e:"🐧",i:"https://loremflickr.com/400/400/penguin?random=28"},
+    {w:"parrot",e:"🦜",i:"https://loremflickr.com/400/400/parrot?random=29"},{w:"peacock",e:"🦚",i:"https://loremflickr.com/400/400/peacock?random=30"},{w:"flamingo",e:"🦩",i:"https://loremflickr.com/400/400/flamingo?random=31"},
+    {w:"swan",e:"🦢",i:"https://loremflickr.com/400/400/swan?random=32"},{w:"fish",e:"🐟",i:"https://loremflickr.com/400/400/fish?random=33"},{w:"dolphin",e:"🐬",i:"https://loremflickr.com/400/400/dolphin?random=34"},
+    {w:"whale",e:"🐋",i:"https://loremflickr.com/400/400/whale?random=35"},{w:"shark",e:"🦈",i:"https://loremflickr.com/400/400/shark?random=36"},{w:"octopus",e:"🐙",i:"https://loremflickr.com/400/400/octopus?random=37"},
+    {w:"crab",e:"🦀",i:"https://loremflickr.com/400/400/crab?random=38"},{w:"lobster",e:"🦞",i:"https://loremflickr.com/400/400/lobster?random=39"},{w:"shrimp",e:"🦐",i:"https://loremflickr.com/400/400/shrimp?random=40"},
+    {w:"turtle",e:"🐢",i:"https://loremflickr.com/400/400/turtle?random=41"},{w:"snake",e:"🐍",i:"https://loremflickr.com/400/400/snake?random=42"},{w:"lizard",e:"🦎",i:"https://loremflickr.com/400/400/lizard?random=43"},
+    {w:"frog",e:"🐸",i:"https://loremflickr.com/400/400/frog?random=44"},{w:"crocodile",e:"🐊",i:"https://loremflickr.com/400/400/crocodile?random=45"},{w:"hippo",e:"🦛",i:"https://loremflickr.com/400/400/hippo?random=46"},
+    {w:"rhino",e:"🦏",i:"https://loremflickr.com/400/400/rhino?random=47"},{w:"camel",e:"🐫",i:"https://loremflickr.com/400/400/camel?random=48"},{w:"llama",e:"🦙",i:"https://loremflickr.com/400/400/llama?random=49"},
+    {w:"bat",e:"🦇",i:"https://loremflickr.com/400/400/bat?random=50"},{w:"bee",e:"🐝",i:"https://loremflickr.com/400/400/bee?random=51"},{w:"butterfly",e:"🦋",i:"https://loremflickr.com/400/400/butterfly?random=52"},
+    {w:"ladybug",e:"🐞",i:"https://loremflickr.com/400/400/ladybug?random=53"},{w:"snail",e:"🐌",i:"https://loremflickr.com/400/400/snail?random=54"},{w:"worm",e:"🪱",i:"https://loremflickr.com/400/400/worm?random=55"},
+    {w:"ant",e:"🐜",i:"https://loremflickr.com/400/400/ant?random=56"},{w:"spider",e:"🕷️",i:"https://loremflickr.com/400/400/spider?random=57"},{w:"eagle",e:"🦅",i:"https://loremflickr.com/400/400/eagle?random=58"},
+    {w:"seal",e:"🦭",i:"https://loremflickr.com/400/400/seal?random=59"},{w:"walrus",e:"🦪",i:"https://loremflickr.com/400/400/walrus?random=60"},{w:"mosquito",e:"🦟",i:"https://loremflickr.com/400/400/mosquito?random=61"},
+    {w:"dragonfly",e:"🪰",i:"https://loremflickr.com/400/400/dragonfly?random=62"},{w:"grasshopper",e:"🦗",i:"https://loremflickr.com/400/400/grasshopper?random=63"},{w:"squirrel",e:"🐿️",i:"https://loremflickr.com/400/400/squirrel?random=64"},
+    {w:"hedgehog",e:"🦔",i:"https://loremflickr.com/400/400/hedgehog?random=65"},{w:"otter",e:"🦦",i:"https://loremflickr.com/400/400/otter?random=66"},{w:"buffalo",e:"🐃",i:"https://loremflickr.com/400/400/buffalo?random=67"},
+    {w:"donkey",e:"🫏",i:"https://loremflickr.com/400/400/donkey?random=68"},{w:"gorilla",e:"🦍",i:"https://loremflickr.com/400/400/gorilla?random=69"}
   ],
   "Vehicles": [
-    {w:"car",e:"🚗"},{w:"bus",e:"🚌"},{w:"truck",e:"🚚"},
-    {w:"taxi",e:"🚕"},{w:"ambulance",e:"🚑"},{w:"fire truck",e:"🚒"},
-    {w:"police car",e:"🚓"},{w:"motorcycle",e:"🏍️"},{w:"bicycle",e:"🚲"},
-    {w:"scooter",e:"🛵"},{w:"skateboard",e:"🛹"},{w:"train",e:"🚂"},
-    {w:"subway",e:"🚇"},{w:"airplane",e:"✈️"},{w:"helicopter",e:"🚁"},
-    {w:"rocket",e:"🚀"},{w:"boat",e:"🚤"},{w:"ship",e:"🚢"},
-    {w:"sailboat",e:"⛵"},{w:"tractor",e:"🚜"},{w:"van",e:"🚐"},
-    {w:"jeep",e:"🚙"},{w:"school bus",e:"🚎"},{w:"tank",e:"🪖"},
-    {w:"hot air balloon",e:"🎈"},{w:"parachute",e:"🪂"},
-    {w:"ferry",e:"⛴️"},{w:"lifeboat",e:"🚣"},{w:"canoe",e:"🛶"},
-    {w:"yacht",e:"🛥️"},{w:"cart",e:"🛒"},{w:"wheelchair",e:"♿"},
-    {w:"roller skates",e:"⛸️"},{w:"spaceship",e:"🛸"}
+    {w:"car",e:"🚗",i:"https://loremflickr.com/400/400/car?random=70"},{w:"bus",e:"🚌",i:"https://loremflickr.com/400/400/bus?random=71"},{w:"truck",e:"🚚",i:"https://loremflickr.com/400/400/truck?random=72"},
+    {w:"taxi",e:"🚕",i:"https://loremflickr.com/400/400/taxi?random=73"},{w:"ambulance",e:"🚑",i:"https://loremflickr.com/400/400/ambulance?random=74"},{w:"fire truck",e:"🚒",i:"https://loremflickr.com/400/400/firetruck?random=75"},
+    {w:"police car",e:"🚓",i:"https://loremflickr.com/400/400/policecar?random=76"},{w:"motorcycle",e:"🏍️",i:"https://loremflickr.com/400/400/motorcycle?random=77"},{w:"bicycle",e:"🚲",i:"https://loremflickr.com/400/400/bicycle?random=78"},
+    {w:"scooter",e:"🛵",i:"https://loremflickr.com/400/400/scooter?random=79"},{w:"skateboard",e:"🛹",i:"https://loremflickr.com/400/400/skateboard?random=80"},{w:"train",e:"🚂",i:"https://loremflickr.com/400/400/train?random=81"},
+    {w:"subway",e:"🚇",i:"https://loremflickr.com/400/400/subway?random=82"},{w:"airplane",e:"✈️",i:"https://loremflickr.com/400/400/airplane?random=83"},{w:"helicopter",e:"🚁",i:"https://loremflickr.com/400/400/helicopter?random=84"},
+    {w:"rocket",e:"🚀",i:"https://loremflickr.com/400/400/rocket?random=85"},{w:"boat",e:"🚤",i:"https://loremflickr.com/400/400/boat?random=86"},{w:"ship",e:"🚢",i:"https://loremflickr.com/400/400/ship?random=87"},
+    {w:"sailboat",e:"⛵",i:"https://loremflickr.com/400/400/sailboat?random=88"},{w:"tractor",e:"🚜",i:"https://loremflickr.com/400/400/tractor?random=89"},{w:"van",e:"🚐",i:"https://loremflickr.com/400/400/van?random=90"},
+    {w:"jeep",e:"🚙",i:"https://loremflickr.com/400/400/jeep?random=91"},{w:"school bus",e:"🚎",i:"https://loremflickr.com/400/400/schoolbus?random=92"},{w:"tank",e:"🪖",i:"https://loremflickr.com/400/400/tank?random=93"},
+    {w:"hot air balloon",e:"🎈",i:"https://loremflickr.com/400/400/hotairballoon?random=94"},{w:"parachute",e:"🪂",i:"https://loremflickr.com/400/400/parachute?random=95"},
+    {w:"ferry",e:"⛴️",i:"https://loremflickr.com/400/400/ferry?random=96"},{w:"lifeboat",e:"🚣",i:"https://loremflickr.com/400/400/lifeboat?random=97"},{w:"canoe",e:"🛶",i:"https://loremflickr.com/400/400/canoe?random=98"},
+    {w:"yacht",e:"🛥️",i:"https://loremflickr.com/400/400/yacht?random=99"},{w:"cart",e:"🛒",i:"https://loremflickr.com/400/400/cart?random=100"},{w:"wheelchair",e:"♿",i:"https://loremflickr.com/400/400/wheelchair?random=101"},
+    {w:"roller skates",e:"⛸️",i:"https://loremflickr.com/400/400/rollerskates?random=102"},{w:"spaceship",e:"🛸",i:"https://loremflickr.com/400/400/spaceship?random=103"}
   ],
   "Furniture": [
-    {w:"table",e:"🪑"},{w:"chair",e:"🪑"},{w:"sofa",e:"🛋️"},
-    {w:"bed",e:"🛏️"},{w:"desk",e:"🪑"},{w:"bookshelf",e:"📚"},
-    {w:"closet",e:"🚪"},{w:"drawer",e:"🗄️"},{w:"wardrobe",e:"🚪"},
-    {w:"shelf",e:"📚"},{w:"lamp",e:"💡"},{w:"carpet",e:"🟫"},
-    {w:"curtain",e:"🪟"},{w:"mirror",e:"🪞"},{w:"clock",e:"🕐"},
-    {w:"pillow",e:"🛋️"},{w:"blanket",e:"🛏️"},{w:"rug",e:"🟫"},
-    {w:"cushion",e:"🛋️"},{w:"stool",e:"🪑"},{w:"bench",e:"🪑"},
-    {w:"crib",e:"🛏️"},{w:"nightstand",e:"🪑"},{w:"dresser",e:"🗄️"},
-    {w:"cabinet",e:"🗄️"},{w:"armchair",e:"🛋️"},{w:"sofa bed",e:"🛋️"},
-    {w:"fan",e:"🌀"},{w:"heater",e:"🔥"},{w:"tv stand",e:"📺"},
-    {w:"trash can",e:"🗑️"},{w:"iron",e:"👔"}
+    {w:"table",e:"🪑",i:"https://loremflickr.com/400/400/table?random=104"},{w:"chair",e:"🪑",i:"https://loremflickr.com/400/400/chair?random=105"},{w:"sofa",e:"🛋️",i:"https://loremflickr.com/400/400/sofa?random=106"},
+    {w:"bed",e:"🛏️",i:"https://loremflickr.com/400/400/bed?random=107"},{w:"desk",e:"🪑",i:"https://loremflickr.com/400/400/desk?random=108"},{w:"bookshelf",e:"📚",i:"https://loremflickr.com/400/400/bookshelf?random=109"},
+    {w:"closet",e:"🚪",i:"https://loremflickr.com/400/400/closet?random=110"},{w:"drawer",e:"🗄️",i:"https://loremflickr.com/400/400/drawer?random=111"},{w:"wardrobe",e:"🚪",i:"https://loremflickr.com/400/400/wardrobe?random=112"},
+    {w:"shelf",e:"📚",i:"https://loremflickr.com/400/400/shelf?random=113"},{w:"lamp",e:"💡",i:"https://loremflickr.com/400/400/lamp?random=114"},{w:"carpet",e:"🟫",i:"https://loremflickr.com/400/400/carpet?random=115"},
+    {w:"curtain",e:"🪟",i:"https://loremflickr.com/400/400/curtain?random=116"},{w:"mirror",e:"🪞",i:"https://loremflickr.com/400/400/mirror?random=117"},{w:"clock",e:"🕐",i:"https://loremflickr.com/400/400/clock?random=118"},
+    {w:"pillow",e:"🛋️",i:"https://loremflickr.com/400/400/pillow?random=119"},{w:"blanket",e:"🛏️",i:"https://loremflickr.com/400/400/blanket?random=120"},{w:"rug",e:"🟫",i:"https://loremflickr.com/400/400/rug?random=121"},
+    {w:"cushion",e:"🛋️",i:"https://loremflickr.com/400/400/cushion?random=122"},{w:"stool",e:"🪑",i:"https://loremflickr.com/400/400/stool?random=123"},{w:"bench",e:"🪑",i:"https://loremflickr.com/400/400/bench?random=124"},
+    {w:"crib",e:"🛏️",i:"https://loremflickr.com/400/400/crib?random=125"},{w:"nightstand",e:"🪑",i:"https://loremflickr.com/400/400/nightstand?random=126"},{w:"dresser",e:"🗄️",i:"https://loremflickr.com/400/400/dresser?random=127"},
+    {w:"cabinet",e:"🗄️",i:"https://loremflickr.com/400/400/cabinet?random=128"},{w:"armchair",e:"🛋️",i:"https://loremflickr.com/400/400/armchair?random=129"},{w:"sofa bed",e:"🛋️",i:"https://loremflickr.com/400/400/sofabed?random=130"},
+    {w:"fan",e:"🌀",i:"https://loremflickr.com/400/400/fan?random=131"},{w:"heater",e:"🔥",i:"https://loremflickr.com/400/400/heater?random=132"},{w:"tv stand",e:"📺",i:"https://loremflickr.com/400/400/tvstand?random=133"},
+    {w:"trash can",e:"🗑️",i:"https://loremflickr.com/400/400/trashcan?random=134"},{w:"iron",e:"👔",i:"https://loremflickr.com/400/400/iron?random=135"}
   ],
   "Food": [
-    {w:"apple",e:"🍎"},{w:"banana",e:"🍌"},{w:"orange",e:"🍊"},
-    {w:"grape",e:"🍇"},{w:"strawberry",e:"🍓"},{w:"watermelon",e:"🍉"},
-    {w:"pineapple",e:"🍍"},{w:"mango",e:"🥭"},{w:"peach",e:"🍑"},
-    {w:"cherry",e:"🍒"},{w:"pear",e:"🍐"},{w:"lemon",e:"🍋"},
-    {w:"bread",e:"🍞"},{w:"cheese",e:"🧀"},{w:"egg",e:"🥚"},
-    {w:"milk",e:"🥛"},{w:"juice",e:"🧃"},{w:"water",e:"💧"},
-    {w:"cake",e:"🎂"},{w:"cookie",e:"🍪"},{w:"ice cream",e:"🍨"},
-    {w:"candy",e:"🍬"},{w:"chocolate",e:"🍫"},{w:"pizza",e:"🍕"},
-    {w:"hamburger",e:"🍔"},{w:"hot dog",e:"🌭"},{w:"sandwich",e:"🥪"},
-    {w:"soup",e:"🍲"},{w:"salad",e:"🥗"},{w:"rice",e:"🍚"},
-    {w:"noodle",e:"🍜"},{w:"donut",e:"🍩"},{w:"pancake",e:"🥞"},
-    {w:"popcorn",e:"🍿"},{w:"french fries",e:"🍟"},
-    {w:"tomato",e:"🍅"},{w:"potato",e:"🥔"},{w:"onion",e:"🧅"},
-    {w:"carrot",e:"🥕"},{w:"corn",e:"🌽"},{w:"cabbage",e:"🥬"},
-    {w:"broccoli",e:"🥦"},{w:"eggplant",e:"🍆"},{w:"pepper",e:"🌶️"},
-    {w:"coconut",e:"🥥"},{w:"avocado",e:"🥑"},{w:"blueberry",e:"🫐"},
-    {w:"kiwi",e:"🥝"},{w:"plum",e:"🍑"},{w:"apricot",e:"🍑"},
-    {w:"fig",e:"🫒"},{w:"toast",e:"🍞"},{w:"jam",e:"🍯"},
-    {w:"honey",e:"🍯"},{w:"butter",e:"🧈"},{w:"sugar",e:"🍬"},
-    {w:"salt",e:"🧂"},{w:"tea",e:"🍵"},{w:"coffee",e:"☕"},
-    {w:"yogurt",e:"🥛"},{w:"steak",e:"🥩"},{w:"chicken meat",e:"🍗"},
-    {w:"bacon",e:"🥓"},{w:"sausage",e:"🌭"}
+    {w:"apple",e:"🍎",i:"https://loremflickr.com/400/400/apple,fruit?random=136"},{w:"banana",e:"🍌",i:"https://loremflickr.com/400/400/banana,fruit?random=137"},{w:"orange",e:"🍊",i:"https://loremflickr.com/400/400/orange,fruit?random=138"},
+    {w:"grape",e:"🍇",i:"https://loremflickr.com/400/400/grapes?random=139"},{w:"strawberry",e:"🍓",i:"https://loremflickr.com/400/400/strawberry?random=140"},{w:"watermelon",e:"🍉",i:"https://loremflickr.com/400/400/watermelon?random=141"},
+    {w:"pineapple",e:"🍍",i:"https://loremflickr.com/400/400/pineapple?random=142"},{w:"mango",e:"🥭",i:"https://loremflickr.com/400/400/mango?random=143"},{w:"peach",e:"🍑",i:"https://loremflickr.com/400/400/peach?random=144"},
+    {w:"cherry",e:"🍒",i:"https://loremflickr.com/400/400/cherry?random=145"},{w:"pear",e:"🍐",i:"https://loremflickr.com/400/400/pear?random=146"},{w:"lemon",e:"🍋",i:"https://loremflickr.com/400/400/lemon?random=147"},
+    {w:"bread",e:"🍞",i:"https://loremflickr.com/400/400/bread?random=148"},{w:"cheese",e:"🧀",i:"https://loremflickr.com/400/400/cheese?random=149"},{w:"egg",e:"🥚",i:"https://loremflickr.com/400/400/egg?random=150"},
+    {w:"milk",e:"🥛",i:"https://loremflickr.com/400/400/milk?random=151"},{w:"juice",e:"🧃",i:"https://loremflickr.com/400/400/juice?random=152"},{w:"water",e:"💧",i:"https://loremflickr.com/400/400/water,glass?random=153"},
+    {w:"cake",e:"🎂",i:"https://loremflickr.com/400/400/cake?random=154"},{w:"cookie",e:"🍪",i:"https://loremflickr.com/400/400/cookie?random=155"},{w:"ice cream",e:"🍨",i:"https://loremflickr.com/400/400/icecream?random=156"},
+    {w:"candy",e:"🍬",i:"https://loremflickr.com/400/400/candy?random=157"},{w:"chocolate",e:"🍫",i:"https://loremflickr.com/400/400/chocolate?random=158"},{w:"pizza",e:"🍕",i:"https://loremflickr.com/400/400/pizza?random=159"},
+    {w:"hamburger",e:"🍔",i:"https://loremflickr.com/400/400/hamburger?random=160"},{w:"hot dog",e:"🌭",i:"https://loremflickr.com/400/400/hotdog?random=161"},{w:"sandwich",e:"🥪",i:"https://loremflickr.com/400/400/sandwich?random=162"},
+    {w:"soup",e:"🍲",i:"https://loremflickr.com/400/400/soup?random=163"},{w:"salad",e:"🥗",i:"https://loremflickr.com/400/400/salad?random=164"},{w:"rice",e:"🍚",i:"https://loremflickr.com/400/400/rice?random=165"},
+    {w:"noodle",e:"🍜",i:"https://loremflickr.com/400/400/noodles?random=166"},{w:"donut",e:"🍩",i:"https://loremflickr.com/400/400/donut?random=167"},{w:"pancake",e:"🥞",i:"https://loremflickr.com/400/400/pancake?random=168"},
+    {w:"popcorn",e:"🍿",i:"https://loremflickr.com/400/400/popcorn?random=169"},{w:"french fries",e:"🍟",i:"https://loremflickr.com/400/400/frenchfries?random=170"},
+    {w:"tomato",e:"🍅",i:"https://loremflickr.com/400/400/tomato?random=171"},{w:"potato",e:"🥔",i:"https://loremflickr.com/400/400/potato?random=172"},{w:"onion",e:"🧅",i:"https://loremflickr.com/400/400/onion?random=173"},
+    {w:"carrot",e:"🥕",i:"https://loremflickr.com/400/400/carrot?random=174"},{w:"corn",e:"🌽",i:"https://loremflickr.com/400/400/corn?random=175"},{w:"cabbage",e:"🥬",i:"https://loremflickr.com/400/400/cabbage?random=176"},
+    {w:"broccoli",e:"🥦",i:"https://loremflickr.com/400/400/broccoli?random=177"},{w:"eggplant",e:"🍆",i:"https://loremflickr.com/400/400/eggplant?random=178"},{w:"pepper",e:"🌶️",i:"https://loremflickr.com/400/400/pepper?random=179"},
+    {w:"coconut",e:"🥥",i:"https://loremflickr.com/400/400/coconut?random=180"},{w:"avocado",e:"🥑",i:"https://loremflickr.com/400/400/avocado?random=181"},{w:"blueberry",e:"🫐",i:"https://loremflickr.com/400/400/blueberry?random=182"},
+    {w:"kiwi",e:"🥝",i:"https://loremflickr.com/400/400/kiwi?random=183"},{w:"plum",e:"🍑",i:"https://loremflickr.com/400/400/plum?random=184"},{w:"apricot",e:"🍑",i:"https://loremflickr.com/400/400/apricot?random=185"},
+    {w:"fig",e:"🫒",i:"https://loremflickr.com/400/400/fig?random=186"},{w:"toast",e:"🍞",i:"https://loremflickr.com/400/400/toast?random=187"},{w:"jam",e:"🍯",i:"https://loremflickr.com/400/400/jam?random=188"},
+    {w:"honey",e:"🍯",i:"https://loremflickr.com/400/400/honey?random=189"},{w:"butter",e:"🧈",i:"https://loremflickr.com/400/400/butter?random=190"},{w:"sugar",e:"🍬",i:"https://loremflickr.com/400/400/sugar?random=191"},
+    {w:"salt",e:"🧂",i:"https://loremflickr.com/400/400/salt?random=192"},{w:"tea",e:"🍵",i:"https://loremflickr.com/400/400/tea?random=193"},{w:"coffee",e:"☕",i:"https://loremflickr.com/400/400/coffee?random=194"},
+    {w:"yogurt",e:"🥛",i:"https://loremflickr.com/400/400/yogurt?random=195"},{w:"steak",e:"🥩",i:"https://loremflickr.com/400/400/steak?random=196"},{w:"chicken meat",e:"🍗",i:"https://loremflickr.com/400/400/friedchicken?random=197"},
+    {w:"bacon",e:"🥓",i:"https://loremflickr.com/400/400/bacon?random=198"},{w:"sausage",e:"🌭",i:"https://loremflickr.com/400/400/sausage?random=199"}
   ],
   "Colors": [
     {w:"red",e:"🔴"},{w:"blue",e:"🔵"},{w:"yellow",e:"🟡"},
@@ -964,52 +971,52 @@ var WORDS_DB = {
     {w:"arrow",e:"➡️"},{w:"moon",e:"🌙"},{w:"wave",e:"🌊"}
   ],
   "Clothes": [
-    {w:"shirt",e:"👕"},{w:"t-shirt",e:"👕"},{w:"pants",e:"👖"},
-    {w:"shorts",e:"🩳"},{w:"dress",e:"👗"},{w:"skirt",e:"👗"},
-    {w:"jacket",e:"🧥"},{w:"coat",e:"🧥"},{w:"socks",e:"🧦"},
-    {w:"shoes",e:"👟"},{w:"boots",e:"👢"},{w:"hat",e:"🧢"},
-    {w:"cap",e:"🧢"},{w:"gloves",e:"🧤"},{w:"scarf",e:"🧣"},
-    {w:"umbrella",e:"☂️"},{w:"swimsuit",e:"👙"},{w:"pajamas",e:"🛌"},
-    {w:"vest",e:"🦺"},{w:"belt",e:"🩲"},
-    {w:"tie",e:"👔"},{w:"suit",e:"🤵"},{w:"uniform",e:"👔"},
-    {w:"sunglasses",e:"🕶️"},{w:"watch",e:"⌚"},{w:"ring",e:"💍"},
-    {w:"necklace",e:"📿"},{w:"earrings",e:"💎"},{w:"bracelet",e:"⌚"},
-    {w:"wallet",e:"👛"},{w:"purse",e:"👜"},{w:"backpack",e:"🎒"},
-    {w:"handbag",e:"👜"},{w:"sandals",e:"👡"},{w:"slippers",e:"🩴"},
-    {w:"raincoat",e:"🧥"},{w:"mittens",e:"🧤"},{w:"apron",e:"👗"}
+    {w:"shirt",e:"👕",i:"https://loremflickr.com/400/400/shirt?random=200"},{w:"t-shirt",e:"👕",i:"https://loremflickr.com/400/400/tshirt?random=201"},{w:"pants",e:"👖",i:"https://loremflickr.com/400/400/pants?random=202"},
+    {w:"shorts",e:"🩳",i:"https://loremflickr.com/400/400/shorts?random=203"},{w:"dress",e:"👗",i:"https://loremflickr.com/400/400/dress?random=204"},{w:"skirt",e:"👗",i:"https://loremflickr.com/400/400/skirt?random=205"},
+    {w:"jacket",e:"🧥",i:"https://loremflickr.com/400/400/jacket?random=206"},{w:"coat",e:"🧥",i:"https://loremflickr.com/400/400/coat?random=207"},{w:"socks",e:"🧦",i:"https://loremflickr.com/400/400/socks?random=208"},
+    {w:"shoes",e:"👟",i:"https://loremflickr.com/400/400/shoes?random=209"},{w:"boots",e:"👢",i:"https://loremflickr.com/400/400/boots?random=210"},{w:"hat",e:"🧢",i:"https://loremflickr.com/400/400/hat?random=211"},
+    {w:"cap",e:"🧢",i:"https://loremflickr.com/400/400/cap?random=212"},{w:"gloves",e:"🧤",i:"https://loremflickr.com/400/400/gloves?random=213"},{w:"scarf",e:"🧣",i:"https://loremflickr.com/400/400/scarf?random=214"},
+    {w:"umbrella",e:"☂️",i:"https://loremflickr.com/400/400/umbrella?random=215"},{w:"swimsuit",e:"👙",i:"https://loremflickr.com/400/400/swimsuit?random=216"},{w:"pajamas",e:"🛌",i:"https://loremflickr.com/400/400/pajamas?random=217"},
+    {w:"vest",e:"🦺",i:"https://loremflickr.com/400/400/vest?random=218"},{w:"belt",e:"🩲",i:"https://loremflickr.com/400/400/belt?random=219"},
+    {w:"tie",e:"👔",i:"https://loremflickr.com/400/400/tie?random=220"},{w:"suit",e:"🤵",i:"https://loremflickr.com/400/400/suit?random=221"},{w:"uniform",e:"👔",i:"https://loremflickr.com/400/400/uniform?random=222"},
+    {w:"sunglasses",e:"🕶️",i:"https://loremflickr.com/400/400/sunglasses?random=223"},{w:"watch",e:"⌚",i:"https://loremflickr.com/400/400/wristwatch?random=224"},{w:"ring",e:"💍",i:"https://loremflickr.com/400/400/ring?random=225"},
+    {w:"necklace",e:"📿",i:"https://loremflickr.com/400/400/necklace?random=226"},{w:"earrings",e:"💎",i:"https://loremflickr.com/400/400/earrings?random=227"},{w:"bracelet",e:"⌚",i:"https://loremflickr.com/400/400/bracelet?random=228"},
+    {w:"wallet",e:"👛",i:"https://loremflickr.com/400/400/wallet?random=229"},{w:"purse",e:"👜",i:"https://loremflickr.com/400/400/purse?random=230"},{w:"backpack",e:"🎒",i:"https://loremflickr.com/400/400/backpack?random=231"},
+    {w:"handbag",e:"👜",i:"https://loremflickr.com/400/400/handbag?random=232"},{w:"sandals",e:"👡",i:"https://loremflickr.com/400/400/sandals?random=233"},{w:"slippers",e:"🩴",i:"https://loremflickr.com/400/400/slippers?random=234"},
+    {w:"raincoat",e:"🧥",i:"https://loremflickr.com/400/400/raincoat?random=235"},{w:"mittens",e:"🧤",i:"https://loremflickr.com/400/400/mittens?random=236"},{w:"apron",e:"👗",i:"https://loremflickr.com/400/400/apron?random=237"}
   ],
   "Home": [
-    {w:"house",e:"🏠"},{w:"door",e:"🚪"},{w:"window",e:"🪟"},
-    {w:"wall",e:"🧱"},{w:"floor",e:"🟫"},{w:"ceiling",e:"🏠"},
-    {w:"roof",e:"🏠"},{w:"garden",e:"🌻"},{w:"garage",e:"🅿️"},
-    {w:"kitchen",e:"🍳"},{w:"bedroom",e:"🛏️"},{w:"bathroom",e:"🚿"},
-    {w:"living room",e:"🛋️"},{w:"stairs",e:"🪜"},{w:"balcony",e:"🌸"},
-    {w:"key",e:"🔑"},{w:"lock",e:"🔒"},{w:"bell",e:"🔔"},
-    {w:"fence",e:"🚧"},{w:"gate",e:"🚪"},{w:"mailbox",e:"📮"},
-    {w:"fridge",e:"🧊"},{w:"microwave",e:"📻"},{w:"oven",e:"🔥"},
-    {w:"stove",e:"🔥"},{w:"sink",e:"🚰"},{w:"faucet",e:"🚰"},
-    {w:"dishwasher",e:"🍽️"},{w:"washing machine",e:"🧺"},
-    {w:"vacuum",e:"🧹"},{w:"broom",e:"🧹"},{w:"bucket",e:"🪣"},
-    {w:"rope",e:"🪢"},{w:"ladder",e:"🪜"},{w:"hammer",e:"🔨"},
-    {w:"nail",e:"🔩"},{w:"screwdriver",e:"🪛"},{w:"tape",e:"🎞️"},
-    {w:"glue",e:"🧴"},{w:"soap",e:"🧼"},{w:"towel",e:"🧻"},
-    {w:"tissue",e:"🧻"},{w:"toilet paper",e:"🧻"},{w:"shampoo",e:"🧴"}
+    {w:"house",e:"🏠",i:"https://loremflickr.com/400/400/house?random=238"},{w:"door",e:"🚪",i:"https://loremflickr.com/400/400/door?random=239"},{w:"window",e:"🪟",i:"https://loremflickr.com/400/400/window?random=240"},
+    {w:"wall",e:"🧱",i:"https://loremflickr.com/400/400/wall?random=241"},{w:"floor",e:"🟫",i:"https://loremflickr.com/400/400/floor?random=242"},{w:"ceiling",e:"🏠",i:"https://loremflickr.com/400/400/ceiling?random=243"},
+    {w:"roof",e:"🏠",i:"https://loremflickr.com/400/400/roof?random=244"},{w:"garden",e:"🌻",i:"https://loremflickr.com/400/400/garden?random=245"},{w:"garage",e:"🅿️",i:"https://loremflickr.com/400/400/garage?random=246"},
+    {w:"kitchen",e:"🍳",i:"https://loremflickr.com/400/400/kitchen?random=247"},{w:"bedroom",e:"🛏️",i:"https://loremflickr.com/400/400/bedroom?random=248"},{w:"bathroom",e:"🚿",i:"https://loremflickr.com/400/400/bathroom?random=249"},
+    {w:"living room",e:"🛋️",i:"https://loremflickr.com/400/400/livingroom?random=250"},{w:"stairs",e:"🪜",i:"https://loremflickr.com/400/400/stairs?random=251"},{w:"balcony",e:"🌸",i:"https://loremflickr.com/400/400/balcony?random=252"},
+    {w:"key",e:"🔑",i:"https://loremflickr.com/400/400/key?random=253"},{w:"lock",e:"🔒",i:"https://loremflickr.com/400/400/lock?random=254"},{w:"bell",e:"🔔",i:"https://loremflickr.com/400/400/doorbell?random=255"},
+    {w:"fence",e:"🚧",i:"https://loremflickr.com/400/400/fence?random=256"},{w:"gate",e:"🚪",i:"https://loremflickr.com/400/400/gate?random=257"},{w:"mailbox",e:"📮",i:"https://loremflickr.com/400/400/mailbox?random=258"},
+    {w:"fridge",e:"🧊",i:"https://loremflickr.com/400/400/fridge?random=259"},{w:"microwave",e:"📻",i:"https://loremflickr.com/400/400/microwave?random=260"},{w:"oven",e:"🔥",i:"https://loremflickr.com/400/400/oven?random=261"},
+    {w:"stove",e:"🔥",i:"https://loremflickr.com/400/400/stove?random=262"},{w:"sink",e:"🚰",i:"https://loremflickr.com/400/400/sink?random=263"},{w:"faucet",e:"🚰",i:"https://loremflickr.com/400/400/faucet?random=264"},
+    {w:"dishwasher",e:"🍽️",i:"https://loremflickr.com/400/400/dishwasher?random=265"},{w:"washing machine",e:"🧺",i:"https://loremflickr.com/400/400/washingmachine?random=266"},
+    {w:"vacuum",e:"🧹",i:"https://loremflickr.com/400/400/vacuum?random=267"},{w:"broom",e:"🧹",i:"https://loremflickr.com/400/400/broom?random=268"},{w:"bucket",e:"🪣",i:"https://loremflickr.com/400/400/bucket?random=269"},
+    {w:"rope",e:"🪢",i:"https://loremflickr.com/400/400/rope?random=270"},{w:"ladder",e:"🪜",i:"https://loremflickr.com/400/400/ladder?random=271"},{w:"hammer",e:"🔨",i:"https://loremflickr.com/400/400/hammer?random=272"},
+    {w:"nail",e:"🔩",i:"https://loremflickr.com/400/400/nail?random=273"},{w:"screwdriver",e:"🪛",i:"https://loremflickr.com/400/400/screwdriver?random=274"},{w:"tape",e:"🎞️",i:"https://loremflickr.com/400/400/tape?random=275"},
+    {w:"glue",e:"🧴",i:"https://loremflickr.com/400/400/glue?random=276"},{w:"soap",e:"🧼",i:"https://loremflickr.com/400/400/soap?random=277"},{w:"towel",e:"🧻",i:"https://loremflickr.com/400/400/towel?random=278"},
+    {w:"tissue",e:"🧻",i:"https://loremflickr.com/400/400/tissue?random=279"},{w:"toilet paper",e:"🧻",i:"https://loremflickr.com/400/400/toiletpaper?random=280"},{w:"shampoo",e:"🧴",i:"https://loremflickr.com/400/400/shampoo?random=281"}
   ],
   "Nature": [
-    {w:"tree",e:"🌳"},{w:"flower",e:"🌸"},{w:"grass",e:"🌿"},
-    {w:"leaf",e:"🍃"},{w:"sun",e:"☀️"},{w:"moon",e:"🌙"},
-    {w:"star",e:"⭐"},{w:"cloud",e:"☁️"},{w:"rain",e:"🌧️"},
-    {w:"snow",e:"❄️"},{w:"wind",e:"💨"},{w:"rainbow",e:"🌈"},
-    {w:"mountain",e:"⛰️"},{w:"river",e:"🌊"},{w:"ocean",e:"🌊"},
-    {w:"beach",e:"🏖️"},{w:"island",e:"🏝️"},{w:"forest",e:"🌲"},
-    {w:"desert",e:"🏜️"},{w:"volcano",e:"🌋"},{w:"stone",e:"🪨"},
-    {w:"mushroom",e:"🍄"},{w:"cactus",e:"🌵"},
-    {w:"lake",e:"🏞️"},{w:"waterfall",e:"💧"},{w:"valley",e:"🏞️"},
-    {w:"hill",e:"⛰️"},{w:"cliff",e:"🪨"},{w:"cave",e:"🕳️"},
-    {w:"pond",e:"🌊"},{w:"spring",e:"💧"},{w:"seed",e:"🌱"},
-    {w:"root",e:"🌳"},{w:"branch",e:"🌳"},{w:"trunk",e:"🪵"},
-    {w:"bark",e:"🪵"},{w:"petal",e:"🌸"},{w:"bud",e:"🌱"},
-    {w:"dew",e:"💧"},{w:"frost",e:"❄️"},{w:"mist",e:"🌫️"}
+    {w:"tree",e:"🌳",i:"https://loremflickr.com/400/400/tree?random=282"},{w:"flower",e:"🌸",i:"https://loremflickr.com/400/400/flower?random=283"},{w:"grass",e:"🌿",i:"https://loremflickr.com/400/400/grass?random=284"},
+    {w:"leaf",e:"🍃",i:"https://loremflickr.com/400/400/leaves?random=285"},{w:"sun",e:"☀️",i:"https://loremflickr.com/400/400/sun?random=286"},{w:"moon",e:"🌙",i:"https://loremflickr.com/400/400/moon?random=287"},
+    {w:"star",e:"⭐",i:"https://loremflickr.com/400/400/stars,night?random=288"},{w:"cloud",e:"☁️",i:"https://loremflickr.com/400/400/clouds?random=289"},{w:"rain",e:"🌧️",i:"https://loremflickr.com/400/400/rain?random=290"},
+    {w:"snow",e:"❄️",i:"https://loremflickr.com/400/400/snow?random=291"},{w:"wind",e:"💨",i:"https://loremflickr.com/400/400/wind?random=292"},{w:"rainbow",e:"🌈",i:"https://loremflickr.com/400/400/rainbow?random=293"},
+    {w:"mountain",e:"⛰️",i:"https://loremflickr.com/400/400/mountain?random=294"},{w:"river",e:"🌊",i:"https://loremflickr.com/400/400/river?random=295"},{w:"ocean",e:"🌊",i:"https://loremflickr.com/400/400/ocean?random=296"},
+    {w:"beach",e:"🏖️",i:"https://loremflickr.com/400/400/beach?random=297"},{w:"island",e:"🏝️",i:"https://loremflickr.com/400/400/island?random=298"},{w:"forest",e:"🌲",i:"https://loremflickr.com/400/400/forest?random=299"},
+    {w:"desert",e:"🏜️",i:"https://loremflickr.com/400/400/desert?random=300"},{w:"volcano",e:"🌋",i:"https://loremflickr.com/400/400/volcano?random=301"},{w:"stone",e:"🪨",i:"https://loremflickr.com/400/400/stone?random=302"},
+    {w:"mushroom",e:"🍄",i:"https://loremflickr.com/400/400/mushroom?random=303"},{w:"cactus",e:"🌵",i:"https://loremflickr.com/400/400/cactus?random=304"},
+    {w:"lake",e:"🏞️",i:"https://loremflickr.com/400/400/lake?random=305"},{w:"waterfall",e:"💧",i:"https://loremflickr.com/400/400/waterfall?random=306"},{w:"valley",e:"🏞️",i:"https://loremflickr.com/400/400/valley?random=307"},
+    {w:"hill",e:"⛰️",i:"https://loremflickr.com/400/400/hill?random=308"},{w:"cliff",e:"🪨",i:"https://loremflickr.com/400/400/cliff?random=309"},{w:"cave",e:"🕳️",i:"https://loremflickr.com/400/400/cave?random=310"},
+    {w:"pond",e:"🌊",i:"https://loremflickr.com/400/400/pond?random=311"},{w:"spring",e:"💧",i:"https://loremflickr.com/400/400/springsource?random=312"},{w:"seed",e:"🌱",i:"https://loremflickr.com/400/400/seeds?random=313"},
+    {w:"root",e:"🌳",i:"https://loremflickr.com/400/400/root,plant?random=314"},{w:"branch",e:"🌳",i:"https://loremflickr.com/400/400/treebranch?random=315"},{w:"trunk",e:"🪵",i:"https://loremflickr.com/400/400/treetrunk?random=316"},
+    {w:"bark",e:"🪵",i:"https://loremflickr.com/400/400/treebark?random=317"},{w:"petal",e:"🌸",i:"https://loremflickr.com/400/400/petal?random=318"},{w:"bud",e:"🌱",i:"https://loremflickr.com/400/400/flowerbud?random=319"},
+    {w:"dew",e:"💧",i:"https://loremflickr.com/400/400/dew?random=320"},{w:"frost",e:"❄️",i:"https://loremflickr.com/400/400/frost?random=321"},{w:"mist",e:"🌫️",i:"https://loremflickr.com/400/400/mist?random=322"}
   ],
   "Body": [
     {w:"head",e:"🧠"},{w:"face",e:"😊"},{w:"eye",e:"👁️"},
@@ -1069,29 +1076,29 @@ var WORDS_DB = {
     {w:"classmate",e:"👨‍🎓"},{w:"partner",e:"🤝"}
   ],
   "School": [
-    {w:"school",e:"🏫"},{w:"teacher",e:"👩‍🏫"},{w:"student",e:"👨‍🎓"},
-    {w:"book",e:"📖"},{w:"pencil",e:"✏️"},{w:"pen",e:"🖊️"},
-    {w:"eraser",e:"🧽"},{w:"ruler",e:"📏"},{w:"scissors",e:"✂️"},
-    {w:"paper",e:"📄"},{w:"blackboard",e:"📝"},{w:"crayon",e:"🖍️"},
-    {w:"glue",e:"🧴"},{w:"paintbrush",e:"🖌️"},
-    {w:"desk",e:"🪑"},{w:"classroom",e:"🏫"},{w:"homework",e:"📝"},
-    {w:"test",e:"📝"},{w:"exam",e:"📝"},{w:"grade",e:"📊"},
-    {w:"library",e:"📚"},{w:"dictionary",e:"📖"},{w:"notebook",e:"📓"},
-    {w:"folder",e:"📁"},{w:"calculator",e:"🧮"},{w:"globe",e:"🌍"},
-    {w:"map",e:"🗺️"},{w:"stapler",e:"📎"},{w:"clip",e:"📎"},
-    {w:"highlighter",e:"🖍️"},{w:"compass",e:"🧭"},{w:"protractor",e:"📐"}
+    {w:"school",e:"🏫",i:"https://loremflickr.com/400/400/school?random=323"},{w:"teacher",e:"👩‍🏫",i:"https://loremflickr.com/400/400/teacher?random=324"},{w:"student",e:"👨‍🎓",i:"https://loremflickr.com/400/400/student?random=325"},
+    {w:"book",e:"📖",i:"https://loremflickr.com/400/400/book?random=326"},{w:"pencil",e:"✏️",i:"https://loremflickr.com/400/400/pencil?random=327"},{w:"pen",e:"🖊️",i:"https://loremflickr.com/400/400/pen?random=328"},
+    {w:"eraser",e:"🧽",i:"https://loremflickr.com/400/400/eraser?random=329"},{w:"ruler",e:"📏",i:"https://loremflickr.com/400/400/ruler?random=330"},{w:"scissors",e:"✂️",i:"https://loremflickr.com/400/400/scissors?random=331"},
+    {w:"paper",e:"📄",i:"https://loremflickr.com/400/400/paper?random=332"},{w:"blackboard",e:"📝",i:"https://loremflickr.com/400/400/blackboard?random=333"},{w:"crayon",e:"🖍️",i:"https://loremflickr.com/400/400/crayons?random=334"},
+    {w:"glue",e:"🧴",i:"https://loremflickr.com/400/400/glue?random=335"},{w:"paintbrush",e:"🖌️",i:"https://loremflickr.com/400/400/paintbrush?random=336"},
+    {w:"desk",e:"🪑",i:"https://loremflickr.com/400/400/desk?random=337"},{w:"classroom",e:"🏫",i:"https://loremflickr.com/400/400/classroom?random=338"},{w:"homework",e:"📝",i:"https://loremflickr.com/400/400/homework?random=339"},
+    {w:"test",e:"📝",i:"https://loremflickr.com/400/400/testpaper?random=340"},{w:"exam",e:"📝",i:"https://loremflickr.com/400/400/exam?random=341"},{w:"grade",e:"📊",i:"https://loremflickr.com/400/400/reportcard?random=342"},
+    {w:"library",e:"📚",i:"https://loremflickr.com/400/400/library?random=343"},{w:"dictionary",e:"📖",i:"https://loremflickr.com/400/400/dictionary?random=344"},{w:"notebook",e:"📓",i:"https://loremflickr.com/400/400/notebook?random=345"},
+    {w:"folder",e:"📁",i:"https://loremflickr.com/400/400/folder?random=346"},{w:"calculator",e:"🧮",i:"https://loremflickr.com/400/400/calculator?random=347"},{w:"globe",e:"🌍",i:"https://loremflickr.com/400/400/globe?random=348"},
+    {w:"map",e:"🗺️",i:"https://loremflickr.com/400/400/map?random=349"},{w:"stapler",e:"📎",i:"https://loremflickr.com/400/400/stapler?random=350"},{w:"clip",e:"📎",i:"https://loremflickr.com/400/400/paperclip?random=351"},
+    {w:"highlighter",e:"🖍️",i:"https://loremflickr.com/400/400/highlighter?random=352"},{w:"compass",e:"🧭",i:"https://loremflickr.com/400/400/compass?random=353"},{w:"protractor",e:"📐",i:"https://loremflickr.com/400/400/protractor?random=354"}
   ],
   "Toys": [
-    {w:"ball",e:"⚽"},{w:"doll",e:"🧸"},{w:"toy",e:"🧸"},
-    {w:"puzzle",e:"🧩"},{w:"kite",e:"🪁"},{w:"balloon",e:"🎈"},
-    {w:"drum",e:"🥁"},{w:"guitar",e:"🎸"},{w:"piano",e:"🎹"},
-    {w:"violin",e:"🎻"},{w:"trumpet",e:"🎺"},{w:"microphone",e:"🎤"},
-    {w:"camera",e:"📷"},{w:"telescope",e:"🔭"},{w:"slide",e:"🛝"},
-    {w:"swing",e:"🛝"},{w:"sandbox",e:"🏖️"},
-    {w:"teddy bear",e:"🧸"},{w:"toy car",e:"🚗"},{w:"robot",e:"🤖"},
-    {w:"blocks",e:"🧱"},{w:"lego",e:"🧱"},{w:"yo-yo",e:"🪀"},
-    {w:"marbles",e:"⚪"},{w:"jump rope",e:"🪢"},{w:"hula hoop",e:"⭕"},
-    {w:"remote control",e:"📱"},{w:"video game",e:"🎮"}
+    {w:"ball",e:"⚽",i:"https://loremflickr.com/400/400/ball,toy?random=355"},{w:"doll",e:"🧸",i:"https://loremflickr.com/400/400/doll?random=356"},{w:"toy",e:"🧸",i:"https://loremflickr.com/400/400/toys?random=357"},
+    {w:"puzzle",e:"🧩",i:"https://loremflickr.com/400/400/puzzle?random=358"},{w:"kite",e:"🪁",i:"https://loremflickr.com/400/400/kite?random=359"},{w:"balloon",e:"🎈",i:"https://loremflickr.com/400/400/balloon?random=360"},
+    {w:"drum",e:"🥁",i:"https://loremflickr.com/400/400/drum?random=361"},{w:"guitar",e:"🎸",i:"https://loremflickr.com/400/400/guitar?random=362"},{w:"piano",e:"🎹",i:"https://loremflickr.com/400/400/piano?random=363"},
+    {w:"violin",e:"🎻",i:"https://loremflickr.com/400/400/violin?random=364"},{w:"trumpet",e:"🎺",i:"https://loremflickr.com/400/400/trumpet?random=365"},{w:"microphone",e:"🎤",i:"https://loremflickr.com/400/400/microphone?random=366"},
+    {w:"camera",e:"📷",i:"https://loremflickr.com/400/400/camera?random=367"},{w:"telescope",e:"🔭",i:"https://loremflickr.com/400/400/telescope?random=368"},{w:"slide",e:"🛝",i:"https://loremflickr.com/400/400/slide,playground?random=369"},
+    {w:"swing",e:"🛝",i:"https://loremflickr.com/400/400/swing?random=370"},{w:"sandbox",e:"🏖️",i:"https://loremflickr.com/400/400/sandbox?random=371"},
+    {w:"teddy bear",e:"🧸",i:"https://loremflickr.com/400/400/teddybear?random=372"},{w:"toy car",e:"🚗",i:"https://loremflickr.com/400/400/toycar?random=373"},{w:"robot",e:"🤖",i:"https://loremflickr.com/400/400/robot?random=374"},
+    {w:"blocks",e:"🧱",i:"https://loremflickr.com/400/400/buildingblocks?random=375"},{w:"lego",e:"🧱",i:"https://loremflickr.com/400/400/lego?random=376"},{w:"yo-yo",e:"🪀",i:"https://loremflickr.com/400/400/yoyo?random=377"},
+    {w:"marbles",e:"⚪",i:"https://loremflickr.com/400/400/marbles?random=378"},{w:"jump rope",e:"🪢",i:"https://loremflickr.com/400/400/jumprope?random=379"},{w:"hula hoop",e:"⭕",i:"https://loremflickr.com/400/400/hulahoop?random=380"},
+    {w:"remote control",e:"📱",i:"https://loremflickr.com/400/400/remotecontrol?random=381"},{w:"video game",e:"🎮",i:"https://loremflickr.com/400/400/videogame?random=382"}
   ],
   "Feelings": [
     {w:"happy",e:"😊"},{w:"sad",e:"😢"},{w:"angry",e:"😠"},
@@ -1112,17 +1119,17 @@ var WORDS_DB = {
     {w:"boiling",e:"🔥"},{w:"temperature",e:"🌡️"}
   ],
   "Places": [
-    {w:"park",e:"🌳"},{w:"zoo",e:"🦁"},{w:"library",e:"📚"},
-    {w:"hospital",e:"🏥"},{w:"store",e:"🏪"},{w:"restaurant",e:"🍽️"},
-    {w:"farm",e:"🌾"},{w:"airport",e:"✈️"},{w:"station",e:"🚉"},
-    {w:"bank",e:"🏦"},{w:"post office",e:"📮"},{w:"cinema",e:"🎬"},
-    {w:"museum",e:"🏛️"},{w:"church",e:"⛪"},{w:"temple",e:"🛕"},
-    {w:"supermarket",e:"🛒"},{w:"bakery",e:"🍞"},{w:"pharmacy",e:"💊"},
-    {w:"hotel",e:"🏨"},{w:"pool",e:"🏊"},{w:"gym",e:"🏋️"},
-    {w:"playground",e:"🛝"},{w:"beach",e:"🏖️"},{w:"campsite",e:"🏕️"},
-    {w:"city",e:"🏙️"},{w:"village",e:"🏘️"},{w:"country",e:"🌍"},
-    {w:"street",e:"🛣️"},{w:"bridge",e:"🌉"},{w:"tower",e:"🏢"},
-    {w:"castle",e:"🏰"},{w:"palace",e:"🏛️"},{w:"market",e:"🏪"}
+    {w:"park",e:"🌳",i:"https://loremflickr.com/400/400/park?random=383"},{w:"zoo",e:"🦁",i:"https://loremflickr.com/400/400/zoo?random=384"},{w:"library",e:"📚",i:"https://loremflickr.com/400/400/library?random=385"},
+    {w:"hospital",e:"🏥",i:"https://loremflickr.com/400/400/hospital?random=386"},{w:"store",e:"🏪",i:"https://loremflickr.com/400/400/store?random=387"},{w:"restaurant",e:"🍽️",i:"https://loremflickr.com/400/400/restaurant?random=388"},
+    {w:"farm",e:"🌾",i:"https://loremflickr.com/400/400/farm?random=389"},{w:"airport",e:"✈️",i:"https://loremflickr.com/400/400/airport?random=390"},{w:"station",e:"🚉",i:"https://loremflickr.com/400/400/trainstation?random=391"},
+    {w:"bank",e:"🏦",i:"https://loremflickr.com/400/400/bank?random=392"},{w:"post office",e:"📮",i:"https://loremflickr.com/400/400/postoffice?random=393"},{w:"cinema",e:"🎬",i:"https://loremflickr.com/400/400/cinema?random=394"},
+    {w:"museum",e:"🏛️",i:"https://loremflickr.com/400/400/museum?random=395"},{w:"church",e:"⛪",i:"https://loremflickr.com/400/400/church?random=396"},{w:"temple",e:"🛕",i:"https://loremflickr.com/400/400/temple?random=397"},
+    {w:"supermarket",e:"🛒",i:"https://loremflickr.com/400/400/supermarket?random=398"},{w:"bakery",e:"🍞",i:"https://loremflickr.com/400/400/bakery?random=399"},{w:"pharmacy",e:"💊",i:"https://loremflickr.com/400/400/pharmacy?random=400"},
+    {w:"hotel",e:"🏨",i:"https://loremflickr.com/400/400/hotel?random=401"},{w:"pool",e:"🏊",i:"https://loremflickr.com/400/400/swimmingpool?random=402"},{w:"gym",e:"🏋️",i:"https://loremflickr.com/400/400/gym?random=403"},
+    {w:"playground",e:"🛝",i:"https://loremflickr.com/400/400/playground?random=404"},{w:"beach",e:"🏖️",i:"https://loremflickr.com/400/400/beach?random=405"},{w:"campsite",e:"🏕️",i:"https://loremflickr.com/400/400/campsite?random=406"},
+    {w:"city",e:"🏙️",i:"https://loremflickr.com/400/400/city?random=407"},{w:"village",e:"🏘️",i:"https://loremflickr.com/400/400/village?random=408"},{w:"country",e:"🌍",i:"https://loremflickr.com/400/400/countryside?random=409"},
+    {w:"street",e:"🛣️",i:"https://loremflickr.com/400/400/street?random=410"},{w:"bridge",e:"🌉",i:"https://loremflickr.com/400/400/bridge?random=411"},{w:"tower",e:"🏢",i:"https://loremflickr.com/400/400/tower?random=412"},
+    {w:"castle",e:"🏰",i:"https://loremflickr.com/400/400/castle?random=413"},{w:"palace",e:"🏛️",i:"https://loremflickr.com/400/400/palace?random=414"},{w:"market",e:"🏪",i:"https://loremflickr.com/400/400/market?random=415"}
   ],
   "Actions": [
     {w:"hello",e:"👋"},{w:"goodbye",e:"👋"},{w:"please",e:"🙏"},
@@ -1189,19 +1196,19 @@ var WORDS_DB = {
     {w:"false",e:"❌"},{w:"same",e:"🔄"},{w:"different",e:"🔄"}
   ],
   "Jobs": [
-    {w:"doctor",e:"👨‍⚕️"},{w:"nurse",e:"👩‍⚕️"},{w:"teacher",e:"👩‍🏫"},
-    {w:"police officer",e:"👮"},{w:"firefighter",e:"👨‍🚒"},
-    {w:"chef",e:"👨‍🍳"},{w:"farmer",e:"👨‍🌾"},{w:"driver",e:"🚗"},
-    {w:"pilot",e:"👨‍✈️"},{w:"scientist",e:"👨‍🔬"},
-    {w:"artist",e:"🎨"},{w:"musician",e:"🎵"},{w:"dancer",e:"💃"},
-    {w:"actor",e:"🎭"},{w:"singer",e:"🎤"},{w:"writer",e:"✍️"},
-    {w:"engineer",e:"👷"},{w:"architect",e:"🏗️"},{w:"lawyer",e:"⚖️"},
-    {w:"judge",e:"⚖️"},{w:"soldier",e:"🪖"},{w:"vet",e:"🐾"},
-    {w:"dentist",e:"🦷"},{w:"baker",e:"🍞"},{w:"barber",e:"💇"},
-    {w:"tailor",e:"🧵"},{w:"photographer",e:"📷"},{w:"reporter",e:"📰"},
-    {w:"postman",e:"📮"},{w:"gardener",e:"🌻"},{w:"cleaner",e:"🧹"},
-    {w:"builder",e:"🔨"},{w:"plumber",e:"🔧"},{w:"electrician",e:"💡"},
-    {w:"mechanic",e:"🔧"},{w:"fisherman",e:"🎣"},{w:"lifeguard",e:"🏊"}
+    {w:"doctor",e:"👨‍⚕️",i:"https://loremflickr.com/400/400/doctor?random=416"},{w:"nurse",e:"👩‍⚕️",i:"https://loremflickr.com/400/400/nurse?random=417"},{w:"teacher",e:"👩‍🏫",i:"https://loremflickr.com/400/400/teacher?random=418"},
+    {w:"police officer",e:"👮",i:"https://loremflickr.com/400/400/policeofficer?random=419"},{w:"firefighter",e:"👨‍🚒",i:"https://loremflickr.com/400/400/firefighter?random=420"},{w:"chef",e:"👨‍🍳",i:"https://loremflickr.com/400/400/chef?random=421"},
+    {w:"farmer",e:"👨‍🌾",i:"https://loremflickr.com/400/400/farmer?random=422"},{w:"driver",e:"🚗",i:"https://loremflickr.com/400/400/driver?random=423"},{w:"pilot",e:"👨‍✈️",i:"https://loremflickr.com/400/400/pilot?random=424"},
+    {w:"scientist",e:"👨‍🔬",i:"https://loremflickr.com/400/400/scientist?random=425"},
+    {w:"artist",e:"🎨",i:"https://loremflickr.com/400/400/artist,painting?random=426"},{w:"musician",e:"🎵",i:"https://loremflickr.com/400/400/musician?random=427"},{w:"dancer",e:"💃",i:"https://loremflickr.com/400/400/dancer?random=428"},
+    {w:"actor",e:"🎭",i:"https://loremflickr.com/400/400/actor?random=429"},{w:"singer",e:"🎤",i:"https://loremflickr.com/400/400/singer?random=430"},{w:"writer",e:"✍️",i:"https://loremflickr.com/400/400/writer,book?random=431"},
+    {w:"engineer",e:"👷",i:"https://loremflickr.com/400/400/engineer?random=432"},{w:"architect",e:"🏗️",i:"https://loremflickr.com/400/400/architect?random=433"},{w:"lawyer",e:"⚖️",i:"https://loremflickr.com/400/400/lawyer?random=434"},
+    {w:"judge",e:"⚖️",i:"https://loremflickr.com/400/400/judge?random=435"},{w:"soldier",e:"🪖",i:"https://loremflickr.com/400/400/soldier?random=436"},{w:"vet",e:"🐾",i:"https://loremflickr.com/400/400/veterinarian?random=437"},
+    {w:"dentist",e:"🦷",i:"https://loremflickr.com/400/400/dentist?random=438"},{w:"baker",e:"🍞",i:"https://loremflickr.com/400/400/baker?random=439"},{w:"barber",e:"💇",i:"https://loremflickr.com/400/400/barber?random=440"},
+    {w:"tailor",e:"🧵",i:"https://loremflickr.com/400/400/tailor?random=441"},{w:"photographer",e:"📷",i:"https://loremflickr.com/400/400/photographer?random=442"},{w:"reporter",e:"📰",i:"https://loremflickr.com/400/400/reporter,journalist?random=443"},
+    {w:"postman",e:"📮",i:"https://loremflickr.com/400/400/postman,mailcarrier?random=444"},{w:"gardener",e:"🌻",i:"https://loremflickr.com/400/400/gardener?random=445"},{w:"cleaner",e:"🧹",i:"https://loremflickr.com/400/400/cleaner?random=446"},
+    {w:"builder",e:"🔨",i:"https://loremflickr.com/400/400/constructionworker?random=447"},{w:"plumber",e:"🔧",i:"https://loremflickr.com/400/400/plumber?random=448"},{w:"electrician",e:"💡",i:"https://loremflickr.com/400/400/electrician?random=449"},
+    {w:"mechanic",e:"🔧",i:"https://loremflickr.com/400/400/mechanic?random=450"},{w:"fisherman",e:"🎣",i:"https://loremflickr.com/400/400/fisherman?random=451"},{w:"lifeguard",e:"🏊",i:"https://loremflickr.com/400/400/lifeguard?random=452"}
   ],
   "Prepositions": [
     {w:"in",e:"📥"},{w:"on",e:"🔝"},{w:"at",e:"📍"},
@@ -1470,7 +1477,11 @@ function renderOptions(options) {
     (function(opt, i) {
       var card = document.createElement('div');
       card.className = 'pic-card';
-      card.innerHTML = '<div class="pic-emoji">' + opt.e + '</div>' +
+      // 有真实图片URL时用<img>，否则用emoji
+      var picHtml = opt.i
+        ? '<img class="real-pic" src="' + opt.i + '" alt="' + opt.w + '" loading="lazy">'
+        : '<div class="pic-emoji">' + opt.e + '</div>';
+      card.innerHTML = picHtml +
         '<div class="feedback-overlay"><div class="fb-emoji"></div><div class="fb-text"></div></div>';
       // 统一处理点击和触摸：用 handleCardClick 包装
       card.addEventListener('touchend', function(e) {
