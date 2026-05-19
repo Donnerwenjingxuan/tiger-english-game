@@ -10,7 +10,7 @@ var CAT_ICONS = {
 };
 
 // ===== 本地图片路径生成函数 =====
-// v2 sits one folder below the shared image library, so reuse ../images.
+// 根目录访问：images 在同级目录下
 // 失败/缺失时 renderOptions() 的 onerror 会自动回退到 emoji
 function aiImg(word) {
   var slug = word.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
